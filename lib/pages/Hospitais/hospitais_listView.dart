@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/Hospitais/hospitais_api.dart';
+import 'package:flutter_app/pages/Hospitais/hospitais_page.dart';
 import 'package:flutter_app/pages/noticias/noticia_Recente.dart';
-import 'package:flutter_app/pages/noticias/noticia_api.dart';
-import 'package:flutter_app/pages/noticias/noticia_page.dart';
 import 'package:flutter_app/utius/nav.dart';
 import 'package:share/share.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class NoticiasListView extends StatefulWidget {
+class HospitaisListView extends StatefulWidget {
   @override
-  _NoticiasListViewState createState() => _NoticiasListViewState();
+  _HospitaisListViewState createState() => _HospitaisListViewState();
 }
 
-class _NoticiasListViewState extends State<NoticiasListView> {
+class _HospitaisListViewState extends State<HospitaisListView> {
   @override
   Widget build(BuildContext context) {
     return _body();
   }
 
   _body() {
-    Future<List<NoticiaRecente>> future = VideosApi.getNoticia();
+    Future<List<NoticiaRecente>> future = HospitaisApi.getNoticia();
     return FutureBuilder(
       future: future,
       builder: (context, snapshot){
         if(snapshot.hasError){
           return Center(
             child: Text(
-              "Não foi possivel buscar as notícias", style: TextStyle(
+              "Não foi possivel localizar os hospitais", style: TextStyle(
               color: Colors.red, fontSize: 22,
             ),
 
@@ -62,16 +61,13 @@ class _NoticiasListViewState extends State<NoticiasListView> {
                     Text(nr.nome, maxLines: 1, overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 25),
                     ),
-                    Text("Descrição...",
-                      style: TextStyle(fontSize: 14),
-                    ),
                     ButtonBarTheme(
                       data: ButtonBarTheme.of(context),
                       child: ButtonBar(
                         children: <Widget>[
                           FlatButton(
-                            child: const Text('DETALHES'),
-                            onPressed: () => _onClickNoticias(nr),
+                            child: const Text('LOCALIDADE'),
+                            onPressed: () => _onClickHospitais(nr),
                           ),
                           FlatButton(
                             child: const Text('SHARE'),
@@ -89,9 +85,8 @@ class _NoticiasListViewState extends State<NoticiasListView> {
     );
   }
 
-  _onClickNoticias(nr) {
-
-    push(context, NoticiaPage(nr));
+  _onClickHospitais(nr) {
+    push(context, HospitaisPage(nr));
   }
 
   _onClickShare(NoticiaRecente nr) {

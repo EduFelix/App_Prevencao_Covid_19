@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/casos_covid.dart';
 import 'package:flutter_app/drawer_list.dart';
-import 'package:flutter_app/pages/graf_informativo.dart';
-import 'file:///C:/Users/eduar/AndroidStudioProjects/flutter_app/lib/pages/noticias/lista_noticias.dart';
-import 'package:flutter_app/pages/locais_hospitais.dart';
-import 'package:flutter_app/pages/noticias/noticias_listView.dart';
+import 'package:flutter_app/pages/Hospitais/lista_Hospitais.dart';
+import 'package:flutter_app/pages/covid.dart';
+import 'package:flutter_app/pages/noticias/noticia_list_view_dois.dart';
+import 'package:flutter_app/pages/videos/videos_listview_dois.dart';
 import 'package:flutter_app/widgets/blue_button.dart';
 
-import '../materias.dart';
+import '../oms.dart';
 import '../../utius/nav.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,28 +19,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Prevenção Covid 19"),
-          bottom: TabBar(
-            tabs: [
-              Tab(text: "Dicas",),
-              Tab(text: "Noticias",),
-            ],
-          ),
-          centerTitle: true,
-        ),
-        body: TabBarView(children: [
-        _body(context),
-          NoticiasListView(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Prevenção Covid 19"),
+        centerTitle: true,
+      ),
+      body: _body(context)
+      ,
+      drawer: DrawerList(
 
-        ],
-        ),
-        drawer: DrawerList(
-
-        ),
       ),
     );
   }
@@ -87,17 +75,18 @@ class _HomePageState extends State<HomePage> {
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
              children: <Widget>[
-               BlueButton( "Hospitais", () => _onClickNavigator(context, LocaisHospitais())),
-               BlueButton( "Materias", () => _onClickNavigator(context, Materiais())),
-               BlueButton( "Graficos", () => _onClickNavigator(context, GrafInformativo()))
+               BlueButton( "Notícias", () => _onClickNavigator(context, HelloListView(),)),
+               BlueButton( "Hospitais", () => _onClickNavigator(context, ListaHospitais())),
+               BlueButton( "OMS", () => _onClickNavigator(context, OMS()))
+
              ],
            ),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
              children: <Widget>[
-               BlueButton( "Videos", _onClickVideos),
-               BlueButton( "Casos", _onClickCasos),
-               BlueButton( "Notícias", () => _onClickNavigator(context, ListaNoticias()))
+               BlueButton( "Videos", () => _onClickNavigator(context, VideoListViewDois())),
+               BlueButton( "Casos Covid", () => _onClickNavigator(context, CasosCovid())),
+               BlueButton( "Covid 19?", () => _onClickNavigator(context, Covid()))
              ],
            )
          ],
@@ -109,24 +98,7 @@ class _HomePageState extends State<HomePage> {
     print(">> $s");
   }
 
-  _onClickHospitais() {
-  }
-
-  _onClickMateriais() {
-  }
-
-  _onClickInfor() {
-  }
-
-  _onClickVideos() {
-
-
-  }
-
   _onClickCasos() {
-  }
-
-  _onClickNoticias() {
   }
 
   _img(String img) {

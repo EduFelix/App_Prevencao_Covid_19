@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "217336476067",
+    "firebase_url": "https://prevencao-ecf96.firebaseio.com",
+    "project_id": "prevencao-ecf96",
+    "storage_bucket": "prevencao-ecf96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217336476067:android:ee275a27c0f6832575aa16",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217336476067-fj99bhb0vcflb06fl44lotbn9cg0p8gb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_app",
+            "certificate_hash": "3b947c2115613bf786262bdf3e91c1f18a0f3114"
+          }
+        },
+        {
+          "client_id": "217336476067-ive14o2evr9q4i0vcc64epff7bqn024m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASS5ahhh2FVY1cYqXtHxpJLmTqvNJbdDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217336476067-ive14o2evr9q4i0vcc64epff7bqn024m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,51 +1,35 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/firebase/firebase_service.dart';
 import 'package:flutter_app/pages/login/usuarios.dart';
 import 'file:///C:/Users/eduar/AndroidStudioProjects/flutter_app/lib/pages/login/login_page.dart';
 import 'package:flutter_app/utius/nav.dart';
 
 class DrawerList extends StatelessWidget {
 
-  UserAccountsDrawerHeader _header(Usuarios user) {
+  UserAccountsDrawerHeader _header(FirebaseUser user) {
     return UserAccountsDrawerHeader(
-      accountName: Text(user.nome),
+      accountName: Text(user.displayName ?? ""),
       accountEmail: Text(user.email),
-      currentAccountPicture: CircleAvatar(
-        backgroundImage: NetworkImage(user.urlFoto),
-      ),
+      currentAccountPicture: user.photoUrl != null ?
+      CircleAvatar(
+        backgroundImage: NetworkImage(user.photoUrl),
+      )
+          :FlutterLogo(),
     );
   }
   @override
   Widget build(BuildContext context) {
-    Future<Usuarios> future = Usuarios.get();
+    Future<FirebaseUser> future = FirebaseAuth.instance.currentUser();
     return SafeArea(
       child: Drawer(
         child: ListView(
           children: <Widget>[
-            FutureBuilder<Usuarios>(
+            FutureBuilder<FirebaseUser>(
               future: future, builder:(context, snapshot){
-                Usuarios user = snapshot.data;
+              FirebaseUser user = snapshot.data;
                 return user != null ? _header(user) : Container();
             },
-            ),
-            ListTile(
-              leading: Icon(Icons.star),
-              title: Text("Favoritos"),
-              subtitle: Text("Saiba mais"),
-              trailing: Icon(Icons.arrow_forward,),
-              onTap: (){
-                print("Item 1");
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.help),
-              title: Text("Ajuda"),
-              subtitle: Text("Saiba mais"),
-              trailing: Icon(Icons.arrow_forward,),
-              onTap: (){
-                print("Item 1");
-                Navigator.pop(context);
-              },
             ),
             ListTile(
               leading: Icon(Icons.exit_to_app),
@@ -63,6 +47,7 @@ class DrawerList extends StatelessWidget {
 
   _onClickLogout(BuildContext context) {
     Usuarios.clear();
+    FirebaseService().logout();
     Navigator.pop(context);
     push(context, LoginPage(), replace: true);
   }

@@ -1,17 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/Hospitais/mapa_page.dart';
 import 'package:flutter_app/pages/covid.dart';
 import 'package:flutter_app/pages/locais_hospitais.dart';
 import 'package:flutter_app/pages/noticias/noticia_Recente.dart';
 import 'package:flutter_app/utius/alert.dart';
 import 'package:flutter_app/utius/nav.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 
-class NoticiaPage extends StatelessWidget {
+class HospitaisPage extends StatelessWidget {
   NoticiaRecente noticia;
-  NoticiaPage(this.noticia);
+  HospitaisPage(this.noticia);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +19,15 @@ class NoticiaPage extends StatelessWidget {
         title: Text(noticia.nome),
         actions: <Widget> [
           IconButton(icon: Icon(Icons.place),
-              onPressed: _onClickMapa()),
-          IconButton(icon: Icon(Icons.videocam),
-              onPressed: (){
-                _onClickVideo(context);
-              } ),
+              onPressed: _onClickMapa(context)),
+          PopupMenuButton<String>(onSelected: (String value) => onClickPopupMenu(value),
+              itemBuilder: (BuildContext context){
+            return [
+              PopupMenuItem(value: "Hospitais",child: LocaisHospitais()),
+              PopupMenuItem(value: "Covid?",child: Covid()),
+              PopupMenuItem(value: "Share",child: Text("Share")),
+            ];
+          })
         ],
       ),
       body: _body(),
@@ -31,25 +35,16 @@ class NoticiaPage extends StatelessWidget {
   }
 
   _body() {
-    WebView(
-      initialUrl: noticia.urlVideo,
-    );
-    //return Container(
-        //padding: EdgeInsets.all(16),
-       // child: ListView(
-         // children: <Widget> [
-          //  Image.network(noticia.urlFoto),
-           // _bloco1(),
-           // Divider(),
-           // _bloco2(),
-         // ],
-       // ));
-    //Center(
-    //  child: new RaisedButton(
-     //   onPressed: _launchURL,
-      //  child: new Text('Show Flutter homepage'),
-     // ),
-   // );
+    return Container(
+        padding: EdgeInsets.all(16),
+        child: ListView(
+          children: <Widget> [
+            Image.network(noticia.urlFoto),
+            _bloco1(),
+            Divider(),
+            _bloco2(),
+          ],
+        ));
   }
 
   Row _bloco1() {
@@ -67,15 +62,13 @@ class NoticiaPage extends StatelessWidget {
           );
   }
 
-  _onClickMapa() {}
+  _onClickMapa(context) {
+    if(noticia.latitude != null && noticia.longitude != null){
+      //launch(noticia.urlVideo);
+      push(context, MapaPage(noticia));
 
-  _onClickVideo(context) {
-    if(noticia.urlVideo != null && noticia.urlVideo.isNotEmpty){
-
-      launch(noticia.urlVideo);
-    }
-    else{
-      alert(context, "Erro");
+    }else{
+      alert(context, "Latitude e longitude não cadastrada");
     }
 
   }
@@ -103,13 +96,4 @@ class NoticiaPage extends StatelessWidget {
     );
   }
 
-}
-
-_launchURL() async {
-  const url = 'https://flutter.io';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
 }

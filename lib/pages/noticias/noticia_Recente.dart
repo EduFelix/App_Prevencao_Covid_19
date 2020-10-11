@@ -1,11 +1,21 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 class NoticiaRecente {
   int id;
   String tipo;
   String nome;
   String desc;
   String urlFoto;
+  String urlVideo;
   String latitude;
   String longitude;
+  latLng(){
+    return LatLng(
+      latitude == null || latitude.isEmpty ? 0.0 : double.parse(latitude),
+      longitude == null || longitude.isEmpty ? 0.0 : double.parse(longitude)
+
+    );
+  }
 
   NoticiaRecente(
       {this.id,
@@ -13,8 +23,10 @@ class NoticiaRecente {
         this.nome,
         this.desc,
         this.urlFoto,
+        this.urlVideo,
         this.latitude,
         this.longitude});
+
 
   NoticiaRecente.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -22,6 +34,7 @@ class NoticiaRecente {
     nome = json['nome'];
     desc = json['desc'];
     urlFoto = json['urlFoto'];
+    urlVideo = json['urlVideo'];
     latitude = json['latitude'];
     longitude = json['longitude'];
   }
@@ -33,6 +46,7 @@ class NoticiaRecente {
     data['nome'] = this.nome;
     data['desc'] = this.desc;
     data['urlFoto'] = this.urlFoto;
+    data['urlVideo'] = this.urlVideo;
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;
     return data;
