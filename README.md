@@ -39,3 +39,28 @@ Nesta tela é exibida uma lista de hospitais da cidade do Recife, ao clicar no b
 
 ![campartilhar_hospitais](https://user-images.githubusercontent.com/28941340/95792900-cb592700-0cba-11eb-85b5-e884c207db9f.jpg)
 
+## Localizações dos Hospitais
+Ao clicar no botão localidade o usuário poderá saber a localização do hospital usando o google mapas.
+
+![Hospitais_localidades](https://user-images.githubusercontent.com/28941340/95793656-75857e80-0cbc-11eb-85d5-f3bffaa93bc4.jpg)
+
+## Site da OMS
+Ao clicar no botão OMS o usuário será direcionado a página da OMS, contudo sem sair do aplicativo. 
+
+![oms](https://user-images.githubusercontent.com/28941340/95793834-d745e880-0cbc-11eb-96e3-5eaf9a6f232f.jpg)
+
+## Vídeos 
+Clicando no botão vídeos, o usuário será direcionado a uma lista de vídeos, de especialistas no combate ao coronavirus.
+
+![videos](https://user-images.githubusercontent.com/28941340/95794122-93071800-0cbd-11eb-809d-d223dccea502.jpg)
+
+## Casos de Covid Brasil
+Nesta tela o usuário será direcionado a tela do mesnitério da saúde e poderá acompanhar diariamente os dados da covid no Brasil.
+
+![casos_covid](https://user-images.githubusercontent.com/28941340/95794305-eda07400-0cbd-11eb-89df-446327481f7c.jpg)
+
+## O que é coronavirus?
+Aqui o usuário poderá tirar suas dúvidas em relação a covid 19.
+
+![informacoes_covid](https://user-images.githubusercontent.com/28941340/95794403-322c0f80-0cbe-11eb-986b-31d80bb63f16.jpg)
+
