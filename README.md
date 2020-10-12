@@ -23,4 +23,10 @@ Aqui o usuário realiza o cadastro  para ter acesso ao aplicativo.
 
 ![cadastro](https://user-images.githubusercontent.com/28941340/95787840-acee2e00-0cb0-11eb-96ed-d74e235ea307.jpg)
 
+## Home 
+Ao fazer login no aplicativo o usuário será direcionado para essa tela. Na qual contém botões que direcionam o usuário para as demais telas do aplicativo.
+
+![home](https://user-images.githubusercontent.com/28941340/95788775-8c26d800-0cb2-11eb-834a-49a2086434b4.jpg)
+
+
 
