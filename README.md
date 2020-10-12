@@ -64,3 +64,9 @@ Aqui o usuário poderá tirar suas dúvidas em relação a covid 19.
 
 ![informacoes_covid](https://user-images.githubusercontent.com/28941340/95794403-322c0f80-0cbe-11eb-986b-31d80bb63f16.jpg)
 
+## Diagrama de Navegabilidade do Aplicativo
+
+![navegabilidade](https://user-images.githubusercontent.com/28941340/95799610-973a3200-0ccb-11eb-97b2-8da995062dfa.jpg)
+
+
+
