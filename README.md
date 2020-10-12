@@ -28,5 +28,14 @@ Ao fazer login no aplicativo o usuário será direcionado para essa tela. Na qua
 
 ![home](https://user-images.githubusercontent.com/28941340/95788775-8c26d800-0cb2-11eb-834a-49a2086434b4.jpg)
 
+## Tela de Notícias
+Nesta tela são exibidas as notícias sobre a covid 19. O usuário, podera  escolher a forma de exibição entre uma lista ou um grid.
 
+![news](https://user-images.githubusercontent.com/28941340/95791414-b4650580-0cb7-11eb-9124-0cfe84b364a3.png)
+
+## Lista de Hospitais de Recife e compartilhamento de informação
+
+Nesta tela é exibida uma lista de hospitais da cidade do Recife, ao clicar no botão compartilhar o usuário poderá compartilhar a imagem do hospital.
+
+![campartilhar_hospitais](https://user-images.githubusercontent.com/28941340/95792900-cb592700-0cba-11eb-85b5-e884c207db9f.jpg)
 
