@@ -1,6 +1,4 @@
-# flutter_app
-
-A new Flutter application.
+# Aplicativo Prevenção Covid 19
 
 ## Getting Started
 
